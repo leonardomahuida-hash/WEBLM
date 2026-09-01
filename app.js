@@ -1,16 +1,49 @@
+const express = require('express');
+const path = require(path)
 
-import express from 'express'
+const app = express();
 
-const app = express()
+const PORT = 3000;
+// configurar EJS
+app.set('view engine', 'ejs');
+
+// archivos estaticos
+app.use(express.static(path.join(__dirname, 'public')))
+
+
+// RUTAS
 
 app.get('/', (req, res) => {
-  res.send('Hello World')
-})
+  res.render('index')
+});
+
+app.get('/servicio', (req, res) => {
+  res.render('servicios')
+});
+
+app.get('/nosotros', (req, res) => {
+  res.render('nosotros')
+});
 
 app.get('/contacto', (req, res) => {
-  res.send('contactame!')
-})
+  res.render('contanto')
+});
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(PORT,() => {
+  console.log('servidor corriendo en http://localhost:${PORT}')
 })
