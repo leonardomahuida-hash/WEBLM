@@ -1,4 +1,4 @@
-require('dotenv').congig();
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path')
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
-app.get('/servicio', (req, res) => {
+app.get('/servicios', (req, res) => {
   res.render('servicios')
 });
 
@@ -32,8 +32,6 @@ app.get('/nosotros', (req, res) => {
 app.get('/contacto', (req, res) => {
   res.render('contanto')
 });
-
-
 
 
 
