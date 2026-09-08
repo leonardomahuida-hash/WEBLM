@@ -12,7 +12,7 @@ console.log(PORT)
 app.set('view engine', 'ejs');
 
 // archivos estaticos
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // RUTAS
@@ -30,22 +30,13 @@ app.get('/nosotros', (req, res) => {
 });
 
 app.get('/contacto', (req, res) => {
-  res.render('contanto')
+  res.render('contacto')
 });
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-app.listen(PORT,() => {
-  console.log('servidor corriendo en http://localhost:${PORT}')
-})
+app.listen(PORT, () => 
+    console.log(`Servidor en http://localhost:${PORT}`)
+);
