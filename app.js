@@ -10,6 +10,10 @@ const PORT = process.env.PORT;
 // configurar EJS
 app.set('view engine', 'ejs');
 
+// MIDDLEWARES
+// permite leer indormacion enviada por formularios html 
+app.use(express.urlencoded({ extended: true}));
+
 // archivos estaticos
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,6 +34,22 @@ app.get('/nosotros', (req, res) => {
 
 app.get('/contacto', (req, res) => {
   res.render('contacto')
+});
+
+app.post('/contacto',(req,res) => {
+
+  const { nombre, correo, Asunto, mensaje } = req.body;
+
+  console.log('-------------------');
+  console.log('mensaje');
+  console.log('-------------------');
+  console.log('nombre',nombre);
+  console.log('correo',correo);
+  console.log('Asunto',Asunto);
+  console.log('mensaje',mensaje);
+
+  res.render('contacto');
+  
 });
 
 
